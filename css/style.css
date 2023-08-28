@@ -6,7 +6,7 @@
 }
 
 body {
-  background: url(/resources/home.jpg) no-repeat center center fixed;
+  background: url(../resources/home.jpg) no-repeat center center fixed;
   background-size: cover;
   color: #fff;
   display: flex;

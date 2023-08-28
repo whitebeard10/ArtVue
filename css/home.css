@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=Work+Sans:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=Roboto+Mono:wght@300&family=Work+Sans:wght@100&display=swap");
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #212529;
+  padding: 10px 10px;
+  color: white;
+  top: 0;
+  position: sticky;
+  z-index: 999;
+}
+
+.logo img {
+  width: 100px;
+  cursor: pointer;
+}
+
+.logo img:hover {
+  transform: scale(1.1);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #ff5722;
+}
+
+/* Art gallery styles */
+
+.art-gallery {
+  display: block; /* Display art pieces in one column */
+  padding: 20px;
+}
+
+.art-item {
+  display: flex; /* Use flexbox for layout */
+  margin-bottom: 20px;
+}
+
+.left-align {
+  flex-direction: row; /* Art on the left, details on the right */
+}
+
+.right-align {
+  flex-direction: row-reverse; /* Art on the right, details on the left */
+}
+
+.art-item img {
+  width: 50%;
+  height: 500px;
+  object-fit: fill;
+  border: 2px solid rgb(56, 53, 53);
+  transform: translateY(-10px); /* Lift the image slightly */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9); /* Add a subtle shadow for lift effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.art-item img:hover {
+  transform: translateY(-20px); /* Increase the lift on hover */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+.art-details {
+  width: 50%; /* Take up the other half of the row's width */
+  padding: 20px;
+  background-color: #f4f4f4; /* Light background for details */
+  box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.1); /* Add shadow on the right side */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add these styles to your existing CSS */
+
+.typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #333; /* Typing cursor effect */
+  animation: typing 3s steps(40) 1s forwards, blink 0.5s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 110%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
