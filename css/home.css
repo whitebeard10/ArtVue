@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=Work+Sans:wght@100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=Roboto+Mono:wght@300&family=Work+Sans:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tulpen+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Tulpen+One&display=swap");
 /* Reset default styles */
 * {
   margin: 0;
@@ -10,17 +12,25 @@
 /* Global styles */
 body {
   font-family: Arial, sans-serif;
+  background: rgb(91, 89, 115);
+  background: linear-gradient(
+    90deg,
+    rgba(91, 89, 115, 1) 0%,
+    rgba(110, 115, 65, 1) 35%,
+    rgba(105, 172, 185, 1) 100%
+  );
 }
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #212529;
+  background-color: #212529d6;
   padding: 10px 10px;
   color: white;
   top: 0;
   position: sticky;
   z-index: 999;
+  max-height: 70px;
 }
 
 .logo img {
@@ -73,7 +83,7 @@ body {
 }
 
 .art-item img {
-  width: 50%;
+  width: 48%;
   height: 500px;
   object-fit: fill;
   border: 2px solid rgb(56, 53, 53);
@@ -90,7 +100,7 @@ body {
 .art-details {
   width: 50%; /* Take up the other half of the row's width */
   padding: 20px;
-  background-color: #f4f4f4; /* Light background for details */
+  background-color: #f4f4f4a3; /* Light background for details */
   box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.1); /* Add shadow on the right side */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -110,12 +120,98 @@ body {
     width: 0;
   }
   to {
-    width: 110%;
+    width: 100%;
   }
 }
 
 @keyframes blink {
-  50% {
+  0%,
+  100% {
     border-color: transparent;
   }
+  50% {
+    border-color: transparent; /* Change to your desired border color */
+  }
+}
+
+/* art details styling */
+.art-name {
+  align-items: center;
+  text-decoration: underline;
+  margin: auto;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 30px;
+}
+/* bid form styling */
+
+.new-bid-form {
+  padding-top: 50px;
+  display: block;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #1f5778;
+  border-radius: 9px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  align-content: right;
+  text-align: center;
+  max-width: 300px;
+  margin: auto;
+  margin-top: 70px;
+}
+
+.new-bid-form label {
+  display: block;
+  margin-bottom: 5px;
+  text-align: center;
+  margin-top: -30px;
+  color: #523139;
+  text-shadow: #ff5722 solid 8px;
+  font-size: 20px;
+  background-color: #ddd;
+  width: 60%;
+}
+
+.new-bid-form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.new-bid-form button {
+  background-color: #0c2331;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 5px;
+}
+
+.new-bid-form button:hover {
+  background-color: #21719f;
+}
+/*art description styling*/
+.art-description {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
+  text-align: justify;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #0b262c;
+  text-shadow: #ff5722 solid 8px;
+}
+/*stying the credits of the project*/
+.credit {
+  display: block;
+  margin-bottom: 0px;
+  position: sticky;
+  text-align: center;
+  color: #0c2331;
+}
+.credit a {
+  text-decoration: bold;
+  font-family: "Black Ops One", cursive;
+  color: #1f5778;
 }

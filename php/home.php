@@ -18,8 +18,8 @@ include 'conn.php'; // Include the database connection file
   <a href="home.php" class="logo"><img src="../resources/lg.png" alt="ArtVue Logo"></a>
   <ul class="nav-links">
     <li><a href="#">Your Bids</a></li>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Contact</a></li>
+    <li><a href="about.php">About Us</a></li>
+    <li><a href="contact.php">Contact</a></li>
     <li><a href="#">Exclusives</a></li>
   </ul>
 </nav>
@@ -51,12 +51,12 @@ include 'conn.php'; // Include the database connection file
     <img src="<?php echo $imageURL; ?>" alt="Art Piece <?php echo $id; ?>">
     <div class="art-details">
       <p class="art-name typing"><?php echo $artName; ?></p>
+      <br><br>
       <p class="art-description"><?php echo $description; ?></p>
       <div class="bid-options">
-        <p class="previous-bid">Previous Bid: $<?php echo $previousBid; ?></p>
         <form class="new-bid-form" action="submit_bid.php" method="post">
-          <label for="new-bid">Place New Bid:</label>
-          <input type="number" name="new-bid" id="new-bid" step="0.01" required>
+          <label for="new-bid">Place New Bid:</label><br>
+          <input type="number" name="new-bid" id="new-bid" step="0.01"  placeholder="Previous Bid: $<?php echo $previousBid; ?>"  required>
           <button type="submit">Submit Bid</button>
         </form>
       </div>
@@ -69,7 +69,9 @@ include 'conn.php'; // Include the database connection file
     $conn->close();
   ?>
 </section>
+<div class="credit">
+    <p>Designed and developed by <a href = "mailto: avinash0chhetri@gmail.com">Avinash Chhetri</a>&copy</p>
+</div>
 
-<!-- ... Your JavaScript and closing body/html tags ... -->
 </body>
 </html>
