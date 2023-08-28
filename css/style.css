@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url(/resources/home.jpg) no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top {
+  text-align: center;
+  padding-top: 50px;
+  top: 0;
+  position: fixed;
+}
+
+a {
+  display: inline-block;
+  padding: 30px 30px;
+  background-color: #ff69b48d;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Source Code Pro", monospace;
+  border: none;
+  border-radius: 8px;
+  font-size: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 210px;
+}
+
+a:hover {
+  background-color: #ff5c9a;
+  animation: glowing 1.5s infinite;
+}
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 10px #ff69b4;
+  }
+  50% {
+    box-shadow: 0 0 20px #ff5c9a;
+  }
+  100% {
+    box-shadow: 0 0 10px #ff69b4;
+  }
+}
