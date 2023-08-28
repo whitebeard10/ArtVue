@@ -100,7 +100,7 @@ body {
 .art-details {
   width: 50%; /* Take up the other half of the row's width */
   padding: 20px;
-  background-color: #f4f4f4a3; /* Light background for details */
+  background-color: #f4f4f413; /* Light background for details */
   box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.1); /* Add shadow on the right side */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

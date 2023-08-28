@@ -58,3 +58,64 @@ a:hover {
     box-shadow: 0 0 10px #ff69b4;
   }
 }
+
+/* Add these rules */
+.get-started-btn {
+  display: inline-block;
+  padding: 30px 30px;
+  background-color: #ff69b48d;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Source Code Pro", monospace;
+  border: none;
+  border-radius: 8px;
+  font-size: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 210px;
+  position: relative;
+  z-index: 1;
+}
+
+.circle-images {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  pointer-events: none; /* Prevent the images from affecting interactions */
+}
+
+.circle-images img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(0, 0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+}
+
+.get-started-btn:hover .circle-images img:nth-child(1) {
+  opacity: 1;
+  transform: translate(90px, -90px);
+}
+
+.get-started-btn:hover .circle-images img:nth-child(2) {
+  opacity: 1;
+  transform: translate(-90px, -90px);
+}
+
+.get-started-btn:hover .circle-images img:nth-child(3) {
+  opacity: 1;
+  transform: translate(90px, 90px);
+}
+
+.get-started-btn:hover .circle-images img:nth-child(4) {
+  opacity: 1;
+  transform: translate(-90px, 90px);
+}
