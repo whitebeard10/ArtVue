@@ -1,8 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=Work+Sans:wght@100&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=Roboto+Mono:wght@300&family=Work+Sans:wght@100&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Tulpen+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Tulpen+One&display=swap");
-/* Reset default styles */
 * {
   margin: 0;
   padding: 0;
@@ -13,13 +8,9 @@
 body {
   font-family: Arial, sans-serif;
   background: rgb(91, 89, 115);
-  background: linear-gradient(
-    90deg,
-    rgba(91, 89, 115, 1) 0%,
-    rgba(110, 115, 65, 1) 35%,
-    rgba(105, 172, 185, 1) 100%
-  );
+  background: #000000;
 }
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -61,157 +52,118 @@ body {
 .nav-links a:hover {
   color: #ff5722;
 }
+/*hero section*/
+.hero {
+  width: 100%;
+  height: 500px;
+  position: relative; /* Create a relative positioning context */
+  overflow: hidden; /* Ensure the image doesn't overflow the container */
+}
 
-/* Art gallery styles */
+.hero img {
+  height: 550px;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Place the image behind other content */
+  transition: transform 0.3s ease; /* Add a transition for hover effect */
+}
 
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Adjust alignment to place content at the bottom left */
+  justify-content: flex-end; /* Adjust alignment to place content at the bottom left */
+  height: 100%;
+  position: relative; /* Create a stacking context for absolute positioning */
+  padding: 20px; /* Add padding for spacing */
+  background: #00000048;
+}
+
+.hero-text {
+  color: rgba(233, 104, 156, 0.9);
+  font-size: 50px;
+  font-weight: 500;
+  text-align: left; /* Adjust text alignment to left */
+  position: relative; /* Create a stacking context for absolute positioning */
+  z-index: 1; /* Place the text above the image */
+  transition: transform 0.3s ease; /* Add a transition for hover effect */
+}
+
+.hero-subtext {
+  color: rgba(244, 191, 212, 0.9);
+  font-size: 24px;
+  font-weight: 400;
+  text-align: left; /* Adjust text alignment to left */
+  margin-top: 10px; /* Add margin to separate from the title */
+}
+
+/* Add a hover effect */
+.hero:hover .hero-text {
+  transform: translateY(-20px); /* Move the text up on hover */
+}
+
+.hero:hover img {
+  transform: scale(1.1); /* Zoom in the image on hover */
+}
+
+/* art section */
 .art-gallery {
-  display: block; /* Display art pieces in one column */
-  padding: 20px;
+  padding-top: 30px;
+  max-width: 95%;
+  margin: 0 auto;
+}
+.art-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: center;
 }
 
 .art-item {
-  display: flex; /* Use flexbox for layout */
-  margin-bottom: 20px;
-}
-
-.left-align {
-  flex-direction: row; /* Art on the left, details on the right */
-}
-
-.right-align {
-  flex-direction: row-reverse; /* Art on the right, details on the left */
+  flex: 0 0 30%; /* Each art piece takes up 30% of the width */
+  position: relative;
+  text-align: center;
 }
 
 .art-item img {
-  width: 48%;
+  width: 100%;
   height: 500px;
   object-fit: fill;
-  border: 2px solid rgb(56, 53, 53);
+  border: 2px solid rgb(170, 161, 161);
   transform: translateY(-10px); /* Lift the image slightly */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9); /* Add a subtle shadow for lift effect */
+  box-shadow: 0px 4px 8px rgba(255, 253, 253, 0.9); /* Add a subtle shadow for lift effect */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .art-item img:hover {
   transform: translateY(-20px); /* Increase the lift on hover */
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+  box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.3); /* Enhance shadow on hover */
 }
 
-.art-details {
-  width: 50%; /* Take up the other half of the row's width */
-  padding: 20px;
-  background-color: #f4f4f413; /* Light background for details */
-  box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.1); /* Add shadow on the right side */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Add these styles to your existing CSS */
-
-.typing {
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 2px solid #333; /* Typing cursor effect */
-  animation: typing 3s steps(40) 1s forwards, blink 0.5s step-end infinite;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blink {
-  0%,
-  100% {
-    border-color: transparent;
-  }
-  50% {
-    border-color: transparent; /* Change to your desired border color */
-  }
-}
-
-/* art details styling */
 .art-name {
-  align-items: center;
-  text-decoration: underline;
-  margin: auto;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(202, 255, 237);
+  margin-top: 10px;
 }
-/* bid form styling */
 
-.new-bid-form {
-  padding-top: 50px;
+.bid-options {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  background-color: rgba(103, 88, 94, 0.9);
+  padding: 15px;
+  transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease; /* Added transform */
+  transform: translateY(100%); /* Start hidden below the art piece */
+}
+
+.art-item:hover .bid-options {
   display: block;
-  padding: 20px;
-  border: 1px solid #ddd;
-  background-color: #1f5778;
-  border-radius: 9px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  align-content: right;
-  text-align: center;
-  max-width: 300px;
-  margin: auto;
-  margin-top: 70px;
-}
-
-.new-bid-form label {
-  display: block;
-  margin-bottom: 5px;
-  text-align: center;
-  margin-top: -30px;
-  color: #523139;
-  text-shadow: #ff5722 solid 8px;
-  font-size: 20px;
-  background-color: #ddd;
-  width: 60%;
-}
-
-.new-bid-form input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.new-bid-form button {
-  background-color: #0c2331;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 5px;
-}
-
-.new-bid-form button:hover {
-  background-color: #21719f;
-}
-/*art description styling*/
-.art-description {
-  font-family: "Times New Roman", Times, serif;
-  font-size: 25px;
-  text-align: justify;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  color: #0b262c;
-  text-shadow: #ff5722 solid 8px;
-}
-/*stying the credits of the project*/
-.credit {
-  display: block;
-  margin-bottom: 0px;
-  position: sticky;
-  text-align: center;
-  color: #0c2331;
-}
-.credit a {
-  text-decoration: bold;
-  font-family: "Black Ops One", cursive;
-  color: #1f5778;
+  opacity: 1;
+  transform: translateY(0); /* Move up to its original position on hover */
 }

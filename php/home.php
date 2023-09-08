@@ -23,14 +23,20 @@ include 'conn.php'; // Include the database connection file
     <li><a href="#">Exclusives</a></li>
   </ul>
 </nav>
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-text">ArtVue</h1>
+    <p class="hero-subtext">Where Every Brushstroke Holds a Bid, and Every Bid Becomes Art</p>
+    <img src="../resources/hero.jpg" alt="art gallery image">
+  </div>
+</section>
 
 <section class="art-gallery">
   <?php
     // Fetch art data from database
     $sql = "SELECT id, art_name, description, image_url, previous_bid FROM art_pieces";
     $result = $conn->query($sql);
-  
-    $isLeftAligned = true; // Initialize as left-aligned
+    $counter = 0; // Initialize a counter
   
     while ($row = $result->fetch_assoc()) {
       // Extract art details
@@ -39,39 +45,52 @@ include 'conn.php'; // Include the database connection file
       $description = $row["description"];
       $imageURL = $row["image_url"];
       $previousBid = $row["previous_bid"];
+  ?>
 
-      // Determine the alignment class based on $isLeftAligned
-      $alignmentClass = $isLeftAligned ? 'left-align' : 'right-align';
-  
-      // Toggle the alignment for the next iteration
-      $isLeftAligned = !$isLeftAligned;
+  <?php
+    // Start a new row for every 3 art pieces
+    if ($counter % 3 === 0) {
+      echo '<div class="art-row">';
+    }
   ?>
   
-  <div class="art-item <?php echo $alignmentClass; ?>">
+  <div class="art-item">
+    <!-- Art Image -->
     <img src="<?php echo $imageURL; ?>" alt="Art Piece <?php echo $id; ?>">
-    <div class="art-details">
-      <p class="art-name typing"><?php echo $artName; ?></p>
-      <br><br>
-      <p class="art-description"><?php echo $description; ?></p>
-      <div class="bid-options">
-        <form class="new-bid-form" action="submit_bid.php" method="post">
-          <label for="new-bid">Place New Bid:</label><br>
-          <input type="number" name="new-bid" id="new-bid" step="0.01"  placeholder="Previous Bid: $<?php echo $previousBid; ?>"  required>
-          <button type="submit">Submit Bid</button>
-        </form>
-      </div>
+    
+    <!-- Art Details -->
+    <p class="art-name"><?php echo $artName; ?></p>
+    
+    <!-- Bid Options -->
+    <div class="bid-options">
+      <p class="previous-bid">Previous Bid: $<?php echo $previousBid; ?></p>
+      <form class="new-bid-form" action="submit_bid.php" method="post">
+        <label for="new-bid">Place New Bid:</label>
+        <input type="number" name="new-bid"  step="0.01" required placeholder="previous bid is $<?php echo $previousBid; ?>">
+        <button type="submit">Submit Bid</button>
+      </form>
     </div>
   </div>
+
+  <?php
+    $counter++;
+    // Close the row div for every 3 art pieces
+    if ($counter % 3 === 0) {
+      echo '</div>';
+    }
+  ?>
   
   <?php
     }
-    // Close database connection
-    $conn->close();
+    // Close any open row div if the number of art pieces is not a multiple of 3
+    if ($counter % 3 !== 0) {
+      echo '</div>';
+    }
+    // Close the PHP loop
   ?>
-</section>
-<div class="credit">
-    <p>Designed and developed by <a href = "mailto: avinash0chhetri@gmail.com">Avinash Chhetri</a>&copy</p>
-</div>
 
+</section>
+
+<!-- ... Your JavaScript and closing body/html tags ... -->
 </body>
 </html>
