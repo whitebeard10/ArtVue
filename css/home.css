@@ -156,10 +156,19 @@ body {
   bottom: 50px;
   left: 0;
   right: 0;
-  background-color: rgba(103, 88, 94, 0.9);
+  background-color: rgba(156, 144, 149, 0.9);
   padding: 15px;
   transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease; /* Added transform */
   transform: translateY(100%); /* Start hidden below the art piece */
+}
+
+.bid-options #bid-button {
+  background-color: rgba(175, 219, 219, 0.575);
+}
+
+#bid-button:hover {
+  background-color: rgba(83, 145, 152, 0.619);
+  color: rgb(0, 0, 0);
 }
 
 .art-item:hover .bid-options {

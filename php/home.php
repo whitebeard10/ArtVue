@@ -65,9 +65,9 @@ include 'conn.php'; // Include the database connection file
     <div class="bid-options">
       <p class="previous-bid">Previous Bid: $<?php echo $previousBid; ?></p>
       <form class="new-bid-form" action="submit_bid.php" method="post">
-        <label for="new-bid">Place New Bid:</label>
-        <input type="number" name="new-bid"  step="0.01" required placeholder="previous bid is $<?php echo $previousBid; ?>">
-        <button type="submit">Submit Bid</button>
+        <!-- <label for="new-bid">Place New Bid:</label>
+        <input type="number" name="new-bid"  step="0.01" required placeholder="previous bid is $<?php echo $previousBid; ?>"> -->
+        <button type="submit" id="bid-button">Submit a bid ?</button>
       </form>
     </div>
   </div>
