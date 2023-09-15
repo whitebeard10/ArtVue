@@ -2,34 +2,54 @@
 session_start();
 include 'conn.php'; // Include the database connection file
 
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve user input
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["bidder-name"]) && isset($_POST["bidder-age"]) && isset($_POST["bidder-email"]) && isset($_POST["bid-amount"])) {
+    // Get user input
     $bidderName = $_POST["bidder-name"];
     $bidderAge = $_POST["bidder-age"];
     $bidderEmail = $_POST["bidder-email"];
-    $artName = $_SESSION["art-name"]; // Retrieve art name from the session
     $bidAmount = $_POST["bid-amount"];
 
-    // Insert the bid details into the bid_details table
-    $sql = "INSERT INTO bid_details (bidder_name, bidder_age, bidder_email, art_name, art_piece_id, bid_amount)
-            VALUES (?, ?, ?, ?, ?, ?)";
+    // Get the art name from the session
+    $artName = $_SESSION["art-name"];
+
+    // Retrieve the last bid amount for the art piece
+    $sql = "SELECT previous_bid FROM art_pieces WHERE art_name = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sissid", $bidderName, $bidderAge, $bidderEmail, $artName, $artPieceId, $bidAmount);
+    $stmt->bind_param("s", $artName);
+    $stmt->execute();
+    $stmt->bind_result($lastBidAmount);
+    $stmt->fetch();
+    $stmt->close();
 
-    // You'll need to determine the art piece ID based on the selected art name; retrieve it from your art_pieces table.
-    $artPieceId = getArtPieceId($artName);
+    // Check if the new bid is greater than the last bid
+    if ($bidAmount > $lastBidAmount) {
+        // Update the art_pieces table with the new bid amount
+        $sqlUpdate = "UPDATE art_pieces SET previous_bid = ? WHERE art_name = ?";
+        $stmtUpdate = $conn->prepare($sqlUpdate);
+        $stmtUpdate->bind_param("ds", $bidAmount, $artName);
+        $stmtUpdate->execute();
+        $stmtUpdate->close();
 
-    if ($stmt->execute()) {
-        // Redirect to home.php
-        header("Location: home.php");
-        exit();
+        // Insert the bid details into the bid_details table
+        $artPieceId = getArtPieceId($artName);
+        if ($artPieceId !== null) {
+            $sqlInsert = "INSERT INTO bid_details (bidder_name, bidder_age, bidder_email, art_name, bid_timestamp, art_piece_id, bid_amount) VALUES (?, ?, ?, ?, NOW(), ?, ?)";
+            $stmtInsert = $conn->prepare($sqlInsert);
+            $stmtInsert->bind_param("sisidi", $bidderName, $bidderAge, $bidderEmail, $artName, $artPieceId, $bidAmount);
+            $stmtInsert->execute();
+            $stmtInsert->close();
+            
+            // Redirect to home.php after successful bid submission
+            header("Location: home.php");
+            exit;
+        } else {
+            echo "Error: Art piece ID not found.";
+        }
     } else {
-        echo "Error placing bid: " . $stmt->error;
+        echo '<script>alert("Your bid amount must be higher than the previous bid."); history.back();</script>';
     }
 
     // Close the database connection
-    $stmt->close();
     $conn->close();
 } else {
     // Redirect to home.php if accessed without proper context
@@ -37,7 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit;
 }
 
-// Function to get the art piece ID based on the art name (You need to implement this)
 // Function to get the art piece ID based on the art name
 function getArtPieceId($artName) {
     include 'conn.php'; // Include the database connection file
@@ -50,17 +69,12 @@ function getArtPieceId($artName) {
     if ($stmt->execute()) {
         $stmt->bind_result($artPieceId);
         $stmt->fetch();
-
-        // Close the statement and the database connection
         $stmt->close();
-        $conn->close();
 
         return $artPieceId;
     } else {
         echo "Error fetching art piece ID: " . $stmt->error;
-        // You can handle the error here, e.g., return an error code or handle it as needed.
         return null;
     }
 }
-
 ?>

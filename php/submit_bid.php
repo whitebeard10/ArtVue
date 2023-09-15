@@ -63,6 +63,8 @@
                         <input type="number" name="bidder-age" required>
                         <label for="bidder-email">Email:</label>
                         <input type="email" name="bidder-email" required>
+                        <label for="bid-amount">Amount:</label>
+                        <input type="number" name="bid-amount" required>
                         <button type="submit">Submit Bid</button>
                     </form>
                     <?php
