@@ -17,7 +17,7 @@ include 'conn.php'; // Include the database connection file
 <nav class="navbar">
   <a href="home.php" class="logo"><img src="../resources/lg.png" alt="ArtVue Logo"></a>
   <ul class="nav-links">
-    <li><a href="#">Your Bids</a></li>
+    <li><a href="your_bid.php">Your Bids</a></li>
     <li><a href="about.php">About Us</a></li>
     <li><a href="contact.php">Contact</a></li>
     <li><a href="#">Exclusives</a></li>

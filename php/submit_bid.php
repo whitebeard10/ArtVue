@@ -40,7 +40,7 @@
                 $row = $result->fetch_assoc();
 
                 // Art name matched, save it in the session
-                $_SESSION["art-name"] = $row["art_name"];
+                $_SESSION["art-name"] = $artName;
 
                 // Display art details
                 echo "<div class='art-details'>";

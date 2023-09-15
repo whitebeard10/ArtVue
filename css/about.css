@@ -1,48 +1,119 @@
-body {
-  --s: 100px; /* control the size */
-  --c1: #94dbfa;
-  --c2: #2c3036;
-
-  --_s: calc(2 * var(--s)) calc(2 * var(--s));
-  --_g: var(--_s) conic-gradient(at 40% 40%, #0000 75%, var(--c1) 0);
-  --_p: var(--_s) conic-gradient(at 20% 20%, #0000 75%, var(--c2) 0);
-  background: calc(0.9 * var(--s)) calc(0.9 * var(--s)) / var(--_p),
-    calc(-0.1 * var(--s)) calc(-0.1 * var(--s)) / var(--_p),
-    calc(0.7 * var(--s)) calc(0.7 * var(--s)) / var(--_g),
-    calc(-0.3 * var(--s)) calc(-0.3 * var(--s)) / var(--_g),
-    conic-gradient(from 90deg at 20% 20%, var(--c2) 25%, var(--c1) 0) 0 0 /
-      var(--s) var(--s);
-  animation: m 3s infinite;
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
-@keyframes m {
-  0% {
-    background-position: calc(0.9 * var(--s)) calc(0.9 * var(--s)),
-      calc(-0.1 * var(--s)) calc(-0.1 * var(--s)),
-      calc(0.7 * var(--s)) calc(0.7 * var(--s)),
-      calc(-0.3 * var(--s)) calc(-0.3 * var(--s)), 0 0;
-  }
-  25% {
-    background-position: calc(1.9 * var(--s)) calc(0.9 * var(--s)),
-      calc(-1.1 * var(--s)) calc(-0.1 * var(--s)),
-      calc(1.7 * var(--s)) calc(0.7 * var(--s)),
-      calc(-1.3 * var(--s)) calc(-0.3 * var(--s)), 0 0;
-  }
-  50% {
-    background-position: calc(1.9 * var(--s)) calc(-0.1 * var(--s)),
-      calc(-1.1 * var(--s)) calc(0.9 * var(--s)),
-      calc(1.7 * var(--s)) calc(-0.3 * var(--s)),
-      calc(-1.3 * var(--s)) calc(0.7 * var(--s)), 0 0;
-  }
-  75% {
-    background-position: calc(2.9 * var(--s)) calc(-0.1 * var(--s)),
-      calc(-2.1 * var(--s)) calc(0.9 * var(--s)),
-      calc(2.7 * var(--s)) calc(-0.3 * var(--s)),
-      calc(-2.3 * var(--s)) calc(0.7 * var(--s)), 0 0;
-  }
-  100% {
-    background-position: calc(2.9 * var(--s)) calc(-1.1 * var(--s)),
-      calc(-2.1 * var(--s)) calc(1.9 * var(--s)),
-      calc(2.7 * var(--s)) calc(-1.3 * var(--s)),
-      calc(-2.3 * var(--s)) calc(1.7 * var(--s)), 0 0;
-  }
+body {
+  font-family: Arial, sans-serif;
+  background: rgb(91, 89, 115);
+  background: #000000;
+}
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #212529d6;
+  padding: 10px 10px;
+  color: white;
+  top: 0;
+  position: sticky;
+  z-index: 999;
+  max-height: 70px;
+}
+
+.logo img {
+  width: 100px;
+  cursor: pointer;
+}
+
+.logo img:hover {
+  transform: scale(1.1);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #ff5722;
+}
+
+/*hero section*/
+.hero {
+  width: 100%;
+  height: 680px;
+  position: relative; /* Create a relative positioning context */
+  overflow: hidden; /* Ensure the image doesn't overflow the container */
+}
+
+.hero img {
+  height: 700px;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Place the image behind other content */
+  transition: transform 0.3s ease; /* Add a transition for hover effect */
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: justify; /* Adjust alignment to place content at the bottom left */
+  justify-content: flex-end; /* Adjust alignment to place content at the bottom left */
+  height: 100%;
+  position: relative; /* Create a stacking context for absolute positioning */
+  padding: 20px; /* Add padding for spacing */
+  background: #00000048;
+  margin-bottom: 10%px;
+}
+
+.hero-text {
+  color: rgba(233, 104, 156, 0.9);
+  font-size: 50px;
+  font-weight: 500;
+  text-align: left; /* Adjust text alignment to left */
+  position: relative; /* Create a stacking context for absolute positioning */
+  z-index: 1; /* Place the text above the image */
+  transition: transform 0.3s ease; /* Add a transition for hover effect */
+}
+
+.hero-subtext {
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 24px;
+  font-weight: 400;
+  text-align: left; /* Adjust text alignment to left */
+  margin-top: 10px; /* Add margin to separate from the title */
+  font-family: "Mooli", sans-serif;
+  text-shadow: 0 0 10px rgba(49, 111, 108, 0.5); /* Add glow effect */
+}
+
+.hero-subtext a {
+  color: #316f6c;
+  text-decoration: none;
+}
+
+/* Add a hover effect */
+.hero:hover .hero-text {
+  transform: translateY(-20px); /* Move the text up on hover */
+}
+
+.hero:hover img {
+  transform: scale(1.1); /* Zoom in the image on hover */
 }

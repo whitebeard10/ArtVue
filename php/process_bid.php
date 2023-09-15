@@ -77,4 +77,5 @@ function getArtPieceId($artName) {
         return null;
     }
 }
+
 ?>
