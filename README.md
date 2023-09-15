@@ -7,6 +7,7 @@ The landing page should look like this
 ![image](https://github.com/whitebeard10/ArtVue/assets/103208764/4f10c55c-afb0-4b89-8a1d-7a0e98561d7e)
 
 Then after the Home page should look like
-![image](https://github.com/whitebeard10/ArtVue/assets/103208764/a08eadcc-0188-45da-9bb5-3b38ce089bc3)
+![image](https://github.com/whitebeard10/ArtVue/assets/103208764/491a066d-7c29-436f-9565-c80e7ca23863)
+
 
 You can view more samples inside smaples folder.
