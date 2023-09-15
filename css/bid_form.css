@@ -1,0 +1,78 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(249, 224, 191);
+}
+
+.container {
+  text-align: center;
+  margin-top: 80px;
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid rgb(203, 181, 181);
+  padding: 20px;
+  border-radius: 10px;
+  background-color: antiquewhite;
+}
+
+.container h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: red;
+}
+
+.container label {
+  display: block;
+  margin-bottom: 10px;
+  color: red;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.container input[type="text"],
+.container input[type="number"],
+.container input[type="email"] {
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.container button {
+  background-color: #008cba;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.container button:hover {
+  background-color: #00567c;
+}
+
+.art-details {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.art-details img {
+  margin: 0 auto;
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.art-details h1 {
+  color: bisque;
+}
+
+.art-details p {
+  color: #00567c;
+}
+.bid-form {
+  border: rgb(244, 206, 156) 3px solid;
+  border-radius: 2%;
+  max-width: 500px;
+  margin: 0 auto;
+}
