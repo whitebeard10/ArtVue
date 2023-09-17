@@ -2,6 +2,8 @@
 
 Aesthetic Online Art Auction Platform
 
+It's front end has HTML, CSS, js and bacckend has php and MySQL as database. This project is also equiped with moderate security as it emplements anti SQL Injection and input sanitisation and basic XSS blocker.
+
 To clone it make a DB names "artvue" and then inside it paste the 'art_pieces.sql' provided on the SQL directory and you are good to go.
 
 The landing page should look like this
