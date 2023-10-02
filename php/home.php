@@ -20,7 +20,7 @@ include 'conn.php'; // Include the database connection file
     <li><a href="your_bid.php">Your Bids</a></li>
     <li><a href="about.php">About Us</a></li>
     <li><a href="contact.php">Contact</a></li>
-    <li><a href="#">Exclusives</a></li>
+    <li><a href="exclusives.php">Exclusives</a></li>
   </ul>
 </nav>
 <section class="hero">
